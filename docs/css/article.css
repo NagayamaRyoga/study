@@ -3,6 +3,10 @@ main {
 	margin: 0 auto;
 }
 
+.markdown-body p {
+	margin-bottom: 0.5em;
+}
+
 #body {
 	counter-reset: chapter;
 }
@@ -28,6 +32,7 @@ main {
 
 #index {
 	border-bottom: solid 1px #eaecef;
+	margin-bottom: 5em;
 	counter-reset: chapter;
 }
 #index ol {
