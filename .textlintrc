@@ -3,6 +3,11 @@
 		"preset-japanese": true,
 		"preset-ja-technical-writing": {
 			"ja-no-weak-phrase": false
-		}
+		},
+		"ja-hiragana-fukushi": true,
+		"ja-hiragana-hojodoushi": true,
+		"ja-hiragana-keishikimeishi": true,
+		"ja-unnatural-alphabet": true,
+		"@textlint-ja/textlint-rule-no-insert-dropping-sa": true
 	}
 }
