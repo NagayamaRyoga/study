@@ -1,0 +1,8 @@
+{
+	"rules": {
+		"preset-japanese": true,
+		"preset-ja-technical-writing": {
+			"ja-no-weak-phrase": false
+		}
+	}
+}
