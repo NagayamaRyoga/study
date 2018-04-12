@@ -1,0 +1,64 @@
+main {
+	max-width: 60rem;
+	margin: 0 auto;
+}
+
+#body {
+	counter-reset: chapter;
+}
+#body h1 {
+	counter-reset: sub-chapter;
+}
+#body h2 {
+	counter-reset: section;
+}
+
+#body h1::before {
+	counter-increment: chapter;
+	content: counter(chapter) ". ";
+}
+#body h2::before {
+	counter-increment: sub-chapter;
+	content: counter(chapter) "." counter(sub-chapter) ". ";
+}
+#body h3::before {
+	counter-increment: section;
+	content: counter(chapter) "." counter(sub-chapter) "." counter(section) ". ";
+}
+
+#index {
+	border-bottom: solid 1px #eaecef;
+	counter-reset: chapter;
+}
+#index ol {
+	list-style-type: none;
+	padding-left: 0.5em;
+}
+#index ol li.item-H1 {
+	counter-reset: sub-chapter;
+	padding-left: 0em;
+	font-size: 1.5em;
+}
+#index ol li.item-H2 {
+	counter-reset: section;
+	padding-left: 1em;
+	font-size: 1.2em;
+}
+#index ol li.item-H3 {
+	counter-reset: section;
+	padding-left: 2em;
+	font-size: 1em;
+}
+
+#index ol li.item-H1 a::before {
+	counter-increment: chapter;
+	content: counter(chapter) ". ";
+}
+#index ol li.item-H2 a::before {
+	counter-increment: sub-chapter;
+	content: counter(chapter) "." counter(sub-chapter) ". ";
+}
+#index ol li.item-H3 a::before {
+	counter-increment: section;
+	content: counter(chapter) "." counter(sub-chapter) "." counter(section) ". ";
+}
