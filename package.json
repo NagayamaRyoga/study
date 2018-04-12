@@ -1,0 +1,24 @@
+{
+  "name": "b4_meeting",
+  "version": "0.0.1",
+  "description": "b4 meeting 2018. - kit info sec lab.",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "http-server docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NagayamaRyoga/b4_meeting.git"
+  },
+  "author": "NagayamaRyoga",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/NagayamaRyoga/b4_meeting/issues"
+  },
+  "homepage": "https://github.com/NagayamaRyoga/b4_meeting#readme",
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
+}
