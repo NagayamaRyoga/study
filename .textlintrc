@@ -1,7 +1,18 @@
 {
 	"rules": {
-		"preset-japanese": true,
+		"preset-japanese": {
+			"sentence-length": {
+				"max": 120,
+			}
+		},
 		"preset-ja-technical-writing": {
+			"max-kanji-continuous-len": {
+				"allow": [
+					"対称鍵暗号方式",
+					"公開鍵暗号方式"
+				]
+			},
+			"sentence-length": false,
 			"ja-no-weak-phrase": false
 		},
 		"ja-hiragana-fukushi": true,
