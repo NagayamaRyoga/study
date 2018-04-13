@@ -1,4 +1,4 @@
-暗号学 (_Cryptgraphy_) は秘密を秘密たらしめるための学問である。
+暗号学 (_Cryptography_) は秘密を秘密たらしめるための学問である。
 
 送信者 _Alice_ が受信者 _Bob_ に対してメッセージ *m* を送りたいと仮定する。
 
@@ -60,9 +60,9 @@ $$ D(k, E(k, m)) = m $$
 
 対称鍵暗号とその重要な例である DES (Data Encryption Standard) 及び AES (Advanced Encryption Standard) については Section 2.1. で論じる。
 
-1976年、Diffe と Hellman は論文 _"New Directions in Cryptgraphy"_ を発表した。
+1976年、Diffe と Hellman は論文 _"New Directions in Cryptography"_ を発表した。
 
-その中で彼らは革新的な **公開鍵暗号** (_public-key cryptgraphy_) の概念を紹介した。
+その中で彼らは革新的な **公開鍵暗号** (_public-key cryptography_) の概念を紹介した。
 
 それは長く続いた鍵交換の問題を解決し、デジタル署名への方向性を示した。
 
