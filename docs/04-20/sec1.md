@@ -22,7 +22,7 @@
 
 暗号学の目的の1つはその様な攻撃を防ぐことだ。
 
-他の目的は [Section 1.2.](#) で論じる。
+他の目的は [Section 1.2.](#the-objective-of-cryptography-) で論じる。
 
 # Encryption and Secrecy - 暗号化と秘密
 
