@@ -49,5 +49,7 @@
 		var body = document.querySelector('#body');
 
 		createIndex(body, index);
+	}).then(function() {
+		MathJax.Hub.Process();
 	});
 }());
