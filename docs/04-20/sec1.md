@@ -1,4 +1,4 @@
-暗号学 (_Cryptography_) は秘密を秘密たらしめるための学問である。
+暗号化 (_Cryptography_) は秘密を秘密たらしめるための科学である。
 
 送信者 _Alice_ が受信者 _Bob_ に対してメッセージ *m* を送りたいと仮定する。
 
@@ -20,7 +20,7 @@
 >
 > 参考: https://ja.wikipedia.org/wiki/アリスとボブ
 
-暗号学の目的の1つはその様な攻撃を防ぐことだ。
+暗号化の目的の1つはその様な攻撃を防ぐことだ。
 
 他の目的は [Section 1.2.](#the-objective-of-cryptography-) で論じる。
 
