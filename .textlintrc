@@ -2,7 +2,7 @@
 	"rules": {
 		"preset-japanese": {
 			"sentence-length": {
-				"max": 120,
+				"max": 140,
 			}
 		},
 		"preset-ja-technical-writing": {
@@ -17,7 +17,8 @@
 					"選択暗号文攻撃",
 					"適応的選択暗号文攻撃",
 					"疑似乱数生成器",
-					"公開鍵署名方式"
+					"公開鍵署名方式",
+					"証明可能安全性"
 				]
 			},
 			"sentence-length": false,
