@@ -6,21 +6,7 @@
 			}
 		},
 		"preset-ja-technical-writing": {
-			"max-kanji-continuous-len": {
-				"allow": [
-					"対称鍵暗号方式",
-					"公開鍵暗号方式",
-					"暗号文単独攻撃",
-					"既知平文攻撃",
-					"選択平文攻撃",
-					"適応的選択平文攻撃",
-					"選択暗号文攻撃",
-					"適応的選択暗号文攻撃",
-					"疑似乱数生成器",
-					"公開鍵署名方式",
-					"証明可能安全性"
-				]
-			},
+			"max-kanji-continuous-len": false,
 			"sentence-length": false,
 			"ja-no-weak-phrase": false
 		},
