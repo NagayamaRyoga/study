@@ -18,6 +18,8 @@
 				.replace(/、/g, ', ');
 		}).then(function(body) {
 			into.innerHTML = marked(body);
+		}).then(function() {
+			console.log('loaded markdown: ' + src);
 		});
 	}
 
@@ -60,6 +62,8 @@
 	}).then(function() {
 		return delay(1000);
 	}).then(function() {
+		console.log('apply MathJax');
+
 		MathJax.Hub.Process();
 	});
 }());
