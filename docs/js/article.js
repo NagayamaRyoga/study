@@ -64,6 +64,6 @@
 	}).then(function() {
 		console.log('apply MathJax');
 
-		MathJax.Hub.Process();
+		MathJax.Hub.Queue(['Typeset', MathJax.Hub]);
 	});
 }());
