@@ -1,6 +1,14 @@
 ;(function() {
 	'use strict';
 
+	function delay(wait_ms) {
+		return new Promise(function(resolve) {
+			setTimeout(function() {
+				resolve();
+			}, wait_ms);
+		});
+	}
+
 	function fetchMarkdown(src, into) {
 		return fetch(src).then(function(response) {
 			return response.text();
@@ -49,6 +57,8 @@
 		var body = document.querySelector('#body');
 
 		createIndex(body, index);
+	}).then(function() {
+		return delay(1000);
 	}).then(function() {
 		MathJax.Hub.Process();
 	});
