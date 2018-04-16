@@ -5,6 +5,7 @@ main {
 
 .markdown-body p {
 	margin-bottom: 0.5em;
+	font-family: helvetica, arial, 'hiragino kaku gothic pro', meiryo, 'ms pgothic', sans-serif;
 }
 
 #body {
