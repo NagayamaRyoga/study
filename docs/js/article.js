@@ -19,6 +19,10 @@
 		}).then(function(body) {
 			into.innerHTML = marked(body);
 		}).then(function() {
+			return delay(500);
+		}).then(function() {
+			MathJax.Hub.Queue(['Typeset', MathJax.Hub, into]);
+		}).then(function() {
 			console.log('loaded markdown: ' + src);
 		});
 	}
@@ -59,11 +63,7 @@
 		var body = document.querySelector('#body');
 
 		createIndex(body, index);
-	}).then(function() {
-		return delay(1000);
-	}).then(function() {
-		console.log('apply MathJax');
-
-		MathJax.Hub.Queue(['Typeset', MathJax.Hub]);
+	}).catch(function(err) {
+		alert(err.stack);
 	});
 }());
