@@ -3,9 +3,7 @@
 
 	function delay(wait_ms) {
 		return new Promise(resolve => {
-			setTimeout(() => {
-				resolve();
-			}, wait_ms);
+			setTimeout(() => resolve(), wait_ms);
 		});
 	}
 
@@ -38,25 +36,18 @@
 			item.appendChild(anchor);
 
 			return item;
-		}).reduce((list, item) => {
+		}).forEach(item => {
 			list.appendChild(item);
-
-			return list;
-		}, list);
+		});
 
 		into.appendChild(list);
 	}
 
 	const sections = document.querySelectorAll('section[data-src]');
+	const index = document.querySelector('#index');
+	const body = document.querySelector('#body');
 
-	Promise.all(
-		[...sections].map(section => fetchMarkdown(section.dataset.src, section))
-	).then(() => {
-		const index = document.querySelector('#index');
-		const body = document.querySelector('#body');
-
-		createIndex(body, index);
-	}).catch(err => {
-		alert(err.stack);
-	});
+	Promise.all([...sections].map(section => fetchMarkdown(section.dataset.src, section)))
+		.then(() => createIndex(body, index))
+		.catch(err => alert(err.stack));
 }());
