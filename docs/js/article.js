@@ -2,47 +2,43 @@
 	'use strict';
 
 	function delay(wait_ms) {
-		return new Promise(function(resolve) {
-			setTimeout(function() {
+		return new Promise(resolve => {
+			setTimeout(() => {
 				resolve();
 			}, wait_ms);
 		});
 	}
 
 	function fetchMarkdown(src, into) {
-		return fetch(src).then(function(response) {
-			return response.text();
-		}).then(function(body) {
-			return body
+		const mathJaxDelay_ms = 500;
+
+		return fetch(src)
+			.then(response => response.text())
+			.then(body => body
 				.replace(/。/g, '. ')
-				.replace(/、/g, ', ');
-		}).then(function(body) {
-			into.innerHTML = marked(body);
-		}).then(function() {
-			return delay(500);
-		}).then(function() {
-			MathJax.Hub.Queue(['Typeset', MathJax.Hub, into]);
-		}).then(function() {
-			console.log('loaded markdown: ' + src);
-		});
+				.replace(/、/g, ', '))
+			.then(body => into.innerHTML = marked(body))
+			.then(() => delay(mathJaxDelay_ms))
+			.then(() => MathJax.Hub.Queue(['Typeset', MathJax.Hub, into]))
+			.then(() => console.log(`markdown loaded '${src}'`))
 	}
 
 	function createIndex(from, into) {
-		var titles = from.querySelectorAll('h1,h2,h3');
-		var list = document.createElement('ol');
+		const titles = from.querySelectorAll('h1,h2,h3');
+		const list = document.createElement('ol');
 
-		Array.from(titles).map(function(title) {
-			var item = document.createElement('li');
-			var anchor = document.createElement('a');
+		[...titles].map(title => {
+			const item = document.createElement('li');
+			const anchor = document.createElement('a');
 
 			anchor.textContent = title.textContent;
-			anchor.href = '#' + title.id;
+			anchor.href = `#${title.id}`;
 
 			item.classList.add('item-' + title.tagName);
 			item.appendChild(anchor);
 
 			return item;
-		}).reduce(function(list, item) {
+		}).reduce((list, item) => {
 			list.appendChild(item);
 
 			return list;
@@ -51,19 +47,16 @@
 		into.appendChild(list);
 	}
 
-	var sections = document.querySelectorAll('section[data-src]');
+	const sections = document.querySelectorAll('section[data-src]');
 
 	Promise.all(
-		Array.from(sections).map(function(section) {
-			var src = section.dataset.src;
-			return fetchMarkdown(src, section);
-		})
-	).then(function() {
-		var index = document.querySelector('#index');
-		var body = document.querySelector('#body');
+		[...sections].map(section => fetchMarkdown(section.dataset.src, section))
+	).then(() => {
+		const index = document.querySelector('#index');
+		const body = document.querySelector('#body');
 
 		createIndex(body, index);
-	}).catch(function(err) {
+	}).catch(err => {
 		alert(err.stack);
 	});
 }());
