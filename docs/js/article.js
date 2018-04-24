@@ -18,18 +18,16 @@
 		const titles = from.querySelectorAll('h1,h2,h3');
 		const list = document.createElement('ol');
 
-		[...titles].map(title => {
+		[...titles].forEach(title => {
 			const item = document.createElement('li');
 			const anchor = document.createElement('a');
 
 			anchor.textContent = title.textContent;
 			anchor.href = `#${title.id}`;
 
-			item.classList.add('item-' + title.tagName);
+			item.classList.add(`item-${title.tagName}`);
 			item.appendChild(anchor);
 
-			return item;
-		}).forEach(item => {
 			list.appendChild(item);
 		});
 
