@@ -1,24 +1,17 @@
 ;(function() {
 	'use strict';
 
-	function delay(wait_ms) {
-		return new Promise(resolve => {
-			setTimeout(() => resolve(), wait_ms);
-		});
-	}
+	async function fetchMarkdown(src, into) {
+		const response = await fetch(src);
+		const markdown = (await response.text())
+			.replace(/。/g, '. ')
+			.replace(/、/g, ', ');
 
-	function fetchMarkdown(src, into) {
-		const mathJaxDelay_ms = 500;
+		into.innerHTML = marked(markdown);
 
-		return fetch(src)
-			.then(response => response.text())
-			.then(body => body
-				.replace(/。/g, '. ')
-				.replace(/、/g, ', '))
-			.then(body => into.innerHTML = marked(body))
-			.then(() => delay(mathJaxDelay_ms))
-			.then(() => MathJax.Hub.Queue(['Typeset', MathJax.Hub, into]))
-			.then(() => console.log(`markdown loaded '${src}'`))
+		MathJax.Hub.Queue(['Typeset', MathJax.Hub, into]);
+
+		console.log(`markdown loaded '${src}'`);
 	}
 
 	function createIndex(from, into) {
@@ -49,5 +42,5 @@
 
 	Promise.all([...sections].map(section => fetchMarkdown(section.dataset.src, section)))
 		.then(() => createIndex(body, index))
-		.catch(err => alert(err.stack));
+		.catch(err => console.error(err));
 }());
