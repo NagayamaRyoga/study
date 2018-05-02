@@ -1,4 +1,4 @@
-# B4輪講
+# 輪講
 
 https://nagayamaryoga.github.io/study_meeting
 
