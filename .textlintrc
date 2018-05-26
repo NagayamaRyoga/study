@@ -1,9 +1,7 @@
 {
 	"rules": {
 		"preset-japanese": {
-			"sentence-length": {
-				"max": 200,
-			}
+			"sentence-length": false
 		},
 		"preset-ja-technical-writing": {
 			"max-kanji-continuous-len": false,
