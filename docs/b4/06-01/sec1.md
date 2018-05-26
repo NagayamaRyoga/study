@@ -65,7 +65,7 @@ $a,b \in \Z$ について $\rm{gcd}(a,b) \cdot \rm{lcm}(a,b) = |a \cdot b|$。
     それゆえに $\frac{a}{d'} b$ は $m$ で割り切れる。
     よって $d = \frac{ab}{m}$ は $d'$ で割り切れる。
 
-## Theorem A.3. Division with remainder - 剰余
+## Theorem A.3. Division with remainder. - 剰余
 
 $z,a \in \Z, a \ne 0$ について、$z = q \cdot a + r$ かつ $0 \le r < |a|$ を満たす一意な $q,r \in \Z$ が存在する。
 
@@ -93,7 +93,7 @@ $z,a \in \Z, a \ne 0$ について、$z = q \cdot a + r$ かつ $0 \le r < |a|$ 
 
 よって $(r_1-r_2)$ は $a$ で割り切れるが、$|r_1-r_2| < |a|$ であるため $q_1=q_2$, $r_1=r_2$。
 
-## The Euclidean Algorithm - ユークリッドの互除法
+## The Euclidean Algorithm. - ユークリッドの互除法
 
 $a,b \in \Z, a > b > 0$ とする。
 
@@ -221,7 +221,7 @@ $$
 
 このようにして、**拡張ユークリッド互除法** (*extended Euclidean algorithm*) と呼ばれる以下のアルゴリズムを得る。
 
-## Algorithm A.6. extended Euclidean algorithm - 拡張ユークリッド互除法
+## Algorithm A.6.Eextended Euclidean Algorithm. - 拡張ユークリッド互除法
 
 ```
 int array gcdCoef(int a,b)
@@ -240,7 +240,7 @@ int array gcdCoef(int a,b)
 
 ユークリッドの互除法の時間計算量について考える。
 
-## Definition A.7. The Fibonacci numbers - フィボナッチ数
+## Definition A.7. The Fibonacci Numbers. - フィボナッチ数
 
 フィボナッチ数 $f_n$ は再帰的に定義される。
 
@@ -261,7 +261,7 @@ $$ f_n = \frac{1}{\sqrt{5}} (g^n - \tilde g^n) $$
 
 $$ g = \frac{1 + \sqrt{5}}{2}, \quad \tilde g = \frac{1 - \sqrt{5}}{2} $$
 
-## Definition A.8. the Golden Ratio - 黄金比
+## Definition A.8. The Golden Ratio. - 黄金比
 
 $g$ は **黄金比** (*Golden Ratio*) である。
 
@@ -330,3 +330,19 @@ $a,b \in \Z$ とする。
 反復回数を $n$ とする。
 
 $a \ge f_{n+1} \ge g^{n-1}$ ([Lemma A.9.](#lemma-a-9-)) の対数をとって $n - 1 \le \lfloor log_g(a) \rfloor$。
+
+## The Binary Encoding of Numbers. - 数値の2進符号化
+
+数値を入出力とするアルゴリズムを学ぶには数値の2進符号化が必要である。
+
+bit列 $z_{k-1} z_{k-2} ... z_2 z_1 \; (z_i \in \{0,1\}, 0 \le i \le k-1)$ が符号なし整数 $n$ の2進符号であれば以下を満たす。
+
+$$ n = z_0 + z_1 \cdot 2^1 + ... + z_{k-2} \cdot 2^{k-2} + z_{k-1} \cdot 2^{k-1} = \sum_{i=0}^{k-1} z_i \cdot 2^i $$
+
+先頭桁 $z_{k-1}$ が $1$ である場合、$n$ を $k$ bit 整数と呼び、$k$ を $n$ のバイナリ長 (*binary length*) と言う。
+
+$n \in \N$ のバイナリ長は通常 $|n|$ で表される (絶対値と紛らわしくない場合)。
+
+$n \in \N$ のバイナリ長は $\lfloor log_2(n) \rfloor + 1$ である。
+
+バイナリ長が $k$ の自然数 $n \in \N$ は、$2^{k-1} \le n \le 2^k - 1$ である。
