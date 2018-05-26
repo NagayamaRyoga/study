@@ -17,7 +17,7 @@ $\N = \lbrace z \in \Z \| z > 0 \rbrace$ は自然数の部分集合を表す。
 
 ## Definition A.1.
 
-1. $a, b \in \Z$ とする。
+1. $a,b \in \Z$ とする。
 
     $b = ac$ となる $c \in \Z$ が存在するとき、$b$ は $a$ を割り切れる。
 
@@ -31,9 +31,9 @@ $\N = \lbrace z \in \Z \| z > 0 \rbrace$ は自然数の部分集合を表す。
 
     2. $d'$ が $a$, $b$ のどちらも割り切るとき、$d'$ は $d$ も割り切る。
 
-    最大公約数は $gcd(a, b)$ と書く。
+    最大公約数は $gcd(a,b)$ と書く。
 
-3. $gcd(a, b) = 1$ のとき、$a$ と $b$ は **互いに素** (*relatively prime*) と言う。
+3. $gcd(a,b) = 1$ のとき、$a$ と $b$ は **互いに素** (*relatively prime*) と言う。
 
 4. 以下を満たす $m \in \N$ を $a$ と $b$ の **最小公倍数** (*least common multiple*) と呼ぶ。
 
@@ -41,4 +41,26 @@ $\N = \lbrace z \in \Z \| z > 0 \rbrace$ は自然数の部分集合を表す。
 
     2. $m' \in \Z$ が $a$, $b$ の倍数であるとき、$m'$ は $m$ で割り切れる。
 
-    最小公倍数は $lcm(a, b)$ と書く。
+    最小公倍数は $lcm(a,b)$ と書く。
+
+## Proposition A.2.
+
+$a,b \in \Z$ について $gcd(a,b) \cdot lcm(a,b) = |a \cdot b|$。
+
+[証明]
+
+$a,b \ge 0$ と仮定してもよい。
+
+$a = 0$ または $b = 0$ のとき、$lcm(a,b) = 0$ となり、この式は成り立つ。
+
+$a,b > 0$, $m := lcm(a,b)$ とする。
+$ab$ は $a$ と $b$ の倍数であるため $m$ で割り切れる。
+すなわち $ab = md$。
+
+ここで、$d = \frac{ab}{m} = gcd(a,b)$ であることを示す。
+
+$a = \frac{m}{b} d$, $b = \frac{m}{a} d$ であるため、$d$ は $a$, $b$ を割り切る。
+
+$a$ と $b$ の除数 $d'$ について、$\frac{a}{d'} b = a \frac{b}{d'}$ は $a$ と $b$ の倍数である。
+それゆえに $\frac{a}{d'} b$ は $m$ で割り切れる。
+よって $d = \frac{ab}{m}$ は $d'$ で割り切れる。
