@@ -146,3 +146,77 @@ $$
 $$
 
 ユークリッドの互除法と呼ばれる以下のアルゴリズムが最大公約数を出力することを示した。
+
+## Algorithm A.5.
+
+```
+int gcd(int a, b)
+1   while b ≠ 0 do
+2       r ← a mod b
+3       a ← b
+4       b ← r
+5   return abs(a)
+```
+
+$\rm{gcd}(a,b)$ のみでなく、線形結合 $\rm{gcd}(a,b) = da + eb$ の係数 $d$, $e$ も計算できるようにアルゴリズムを拡張する。
+
+$$ r_{k-1} = q_kr_k + r_{k+1} $$
+
+これを行列を用いて表現する。
+
+$$
+    \begin{pmatrix}
+        r_k \\\\
+        r_{k+1}
+    \end{pmatrix}
+    =
+    Q_k
+    \begin{pmatrix}
+        r_{k-1} \\\\
+        r_k
+    \end{pmatrix}
+    , \quad
+    Q_k
+    =
+    \begin{pmatrix}
+        0 & 1 \\\\
+        1 & -q_k
+    \end{pmatrix}
+    , \quad
+    (k = 1, ..., n)
+$$
+
+行列の乗算で以下が得られる。
+
+$$
+    \begin{pmatrix}
+        r_n \\\\
+        r_{n+1}
+    \end{pmatrix}
+    = Q_n \cdot Q_{n-1} \cdot ... \cdot Q_1
+    \begin{pmatrix}
+        r_0 \\\\
+        r_1
+    \end{pmatrix}
+$$
+
+以下の行列の繰り返し乗算で、最終的に $\Lambda_n = Q_n \cdot Q_{n-1} \cdot ... \cdot Q_1$ を得る。
+
+$$
+    \Lambda_0 =
+    \begin{pmatrix}
+        1 & 0 \\\\
+        0 & 1
+    \end{pmatrix},
+    \quad
+    \Lambda_k =
+    \begin{pmatrix}
+        0 & 1 \\\\
+        1 & -q_k
+    \end{pmatrix}
+    \Lambda_{k-1},
+    \quad
+    (k = 1, ..., n)
+$$
+
+このようにして、**拡張ユークリッド互除法** (*extended Euclidean algorithm*) と呼ばれる以下のアルゴリズムを得る。
