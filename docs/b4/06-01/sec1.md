@@ -220,3 +220,45 @@ $$
 $$
 
 このようにして、**拡張ユークリッド互除法** (*extended Euclidean algorithm*) と呼ばれる以下のアルゴリズムを得る。
+
+## Algorithm A.6. extended Euclidean algorithm - 拡張ユークリッド互除法
+
+```
+int array gcdCoef(int a,b)
+ 1  λ11 ← 1, λ22 ← 1, λ12 ← 0, λ21 ← 0
+ 2  while b ≠ 0 do
+ 3      q ← a div b
+ 4      r ← a mod b
+ 5      a ← b
+ 6      b ← r
+ 7      t21 ← λ21; t22 ← λ22
+ 8      λ21 ← λ11 - q ・ λ21
+ 9      λ22 ← λ12 - q ・ λ22
+10      λ11 ← t21
+11      λ12 ← t22
+```
+
+ユークリッドの互除法の時間計算量について考える。
+
+## Definition A.7. The Fibonacci numbers - フィボナッチ数
+
+フィボナッチ数 $f_n$ は再帰的に定義される。
+
+$$
+\begin{split}
+    f_0 := 0, \quad f_1 := 1, & \\\\
+    f_n := f_{n-1} + f_{n-2}, &\; (n \ge 2)
+\end{split}
+$$ 
+
+[注意] フィボナッチ数は非再帰的に計算できる。
+
+$$ f_n = \frac{1}{\sqrt{5}} (g^n - \tilde g^n) $$
+
+ただし $g$, $\tilde g$ は $x^2 = x+1$ の解。
+
+$$ g = \frac{1 + \sqrt{5}}{2}, \quad \tilde g = \frac{1 - \sqrt{5}}{2} $$
+
+## Definition A.8. the Golden Ratio - 黄金比
+
+$g$ は **黄金比** (*Golden Ratio*) である。
