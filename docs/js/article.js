@@ -5,7 +5,12 @@
 		const response = await fetch(src);
 		const markdown = (await response.text())
 			.replace(/。/g, '. ')
-			.replace(/、/g, ', ');
+			.replace(/、/g, ', ')
+			.replace(/\\\|/g, '\\mid')
+			.replace(/\\{/g, '\\lbrace')
+			.replace(/\\}/g, '\\rbrace')
+			.replace(/\\Z/g, '\\mathbb{Z}')
+			.replace(/\\N/g, '\\mathbb{N}');
 
 		into.innerHTML = marked(markdown);
 
