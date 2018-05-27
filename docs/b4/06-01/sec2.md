@@ -87,7 +87,7 @@ $\gcd(x,n) = 1$ であれば $xb+nc = 1$ なる $b,c \in \Z$ が存在する。
 
 ## Corollary A.18.
 
-$p$ を素数とする。$[x] \ne 0$ なる $[x] \in \Z$ は単元である。
+$p$ を素数とする。$[x] \ne 0$ なる $[x] \in \Z_p$ は単元である。
 
 従って、$\Z_p$ は **体** (*field*) である。
 
@@ -160,3 +160,45 @@ $$ \varphi(n) > \frac{n}{6 \log(\log(n))} \quad (n \ge 1.3 \cdot 10^6). $$
 RSA暗号方式はFermatとEulerの業績に基づいている。
 
 これらは、以下の命題の特殊なケースである。
+
+## Proposition A.24.
+
+$G$ を有限群、$e$ を $G$ の単位元とすると、全ての $x \in G$ について $x^{|G|} = e$。
+
+[証明]
+
+これは **アーベル群** (*Abelian groups*) のみに適用されるため、証明では群 $G$ がアーベルであると仮定する。
+
+> [注釈]
+>
+> アーベル群: 加算が可換な群。
+
+群の要素に $x$ を乗じる写像 $\mu_x : G \longrightarrow G, \; g \longmapsto xg$ は全単射写像である。
+
+したがって、
+
+$$ \prod_{g \in G} g = \prod_{g \in G} xg = x^{|G|} \prod_{g \in G} g, $$
+
+であり、$x^{|G|} = e$。
+
+## Proposition A.25.
+
+$p$ を素数、$a \in \Z$ を $p$ と互いに素とするとき、
+
+$$ a^{p-1} \equiv 1 \mod p. $$
+
+[証明]
+
+$p$ を法とする剰余類 $[a]$ の $a$ は $p$ と互いに素であるため、単元である ([Proposition A.17.](#proposition-a-17-))。
+
+[Corollary A.18.](#corollary-a-18-) より、$|\Z_p^*| = p-1$。
+
+また、[Proposition A.24.](#proposition-a-24-) より、$[a]^{p-1} = 1$。
+
+[注]
+
+FermatはFermat最終定理として知られる有名な推測を述べた。
+
+Fermatの最終定理: $n \ge 3$ について方程式 $x^n = y^n = z^n$ を満たす $x,y,z$ が存在しない。
+
+300年以上にわたってFermatの最終定理は未解決問題だったが、1995年に Andrew Wiles によって証明された。
