@@ -2,7 +2,7 @@
 
 公開鍵暗号方式では、通常 $n$ を法とする剰余を計算する必要がある。
 
-これは計算が **剰余類環** (*residue class ring*) $\Z_n$ で行われることを意味する。
+これは計算が **剰余環** (*residue class ring*) $\Z_n$ で行われることを意味する。
 
 ## Definition A.14. Residue Classes. - 剰余類
 
@@ -20,7 +20,7 @@ $n$ を正の整数とする。
 
 3. $\Z_n := \{ [a] \| a \in \Z \}$ は $n$ を法とする剰余類の集合である。
 
-[注意]
+[注]
 
 「$n$ を法として合同」とは **対称的** (*symmetric*) で **反射的** (*reflexive*) で **推移的** (*transitive*) な関係、すなわち **同値関係** (*equivalence relation*) である。
 
@@ -39,3 +39,15 @@ $n$ との剰余によって $0, ..., n-1$ が得られる。従って、$n$ の
 $[x] \in \Z_n$ の自然代表元は単に 剰余 $x \mod n$ である。
 
 入出力が剰余類であるアルゴリズムを学ぶには剰余類の2進符号化が必要である。$[x] \in \Z_n$ の2進符号は、符号なし整数としての自然代表元 $x \mod n$ の2進符号である。
+
+## Definition A.15. Addition and Multiplication - 加算と乗算
+
+$$ [a] + [b] = [a+b] $$
+
+$$ [a] \cdot [b] = [a \cdot b] $$
+
+<!-- textlint-disable preset-japanese/no-doubled-joshi -->
+
+$\Z_n$ は $[1]$ を **単位元** (*unit element*) に持つ **可換環** (*commutative ring*) であり、$n$ を法とする **剰余環** (*residue class ring*) と呼ぶ。
+
+<!-- textlint-enable preset-japanese/no-doubled-joshi -->

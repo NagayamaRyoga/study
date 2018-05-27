@@ -13,5 +13,8 @@
 		"ja-hiragana-keishikimeishi": true,
 		"ja-unnatural-alphabet": true,
 		"@textlint-ja/textlint-rule-no-insert-dropping-sa": true
+	},
+	"filters": {
+		"comments": true
 	}
 }
