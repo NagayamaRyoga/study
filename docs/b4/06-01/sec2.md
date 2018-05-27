@@ -104,3 +104,27 @@ $\Z_n$ の単位元の部分群 $\Z_n^\* := \{ x \in \Z_n \| x \; \rm{は} \; \Z
 $M$ を有限集合とする。
 
 $M$ の要素数を **基数** (*cardinality* / *order*) と呼び、$|M|$ と表す。
+
+## Definition A.21. The Eular Phi Function - オイラーの φ 関数
+
+$$ \varphi : \N \longrightarrow \N, n \longmapsto |\Z_n^*| $$
+
+を **オイラーの $\varphi$ 関数** (*Euler phi function*) あるいは **オイラーのトーシェント関数** (*Euler totient function*) と呼ぶ。
+
+> [注釈]
+>
+> $\varphi(m)$ は $1$ から $m$ までのうち $m$ と互いに素な整数の数になる。
+
+## Proposition A.22.
+
+$$ \sum_{d \| n} \varphi(d) = n $$
+
+[証明]
+
+$n$ の約数 $d$ について、$Z_d := \{ x \| 1 \le x \le n, \; gcd(x,n) = d \}$ とする。
+
+$k \in \{ 1, ..., n \}$ について $k$ はただ1つの $Z_d$ に属する。
+
+それゆえ、$n = \sum_{d \| n} |Z_d|$。
+
+$x \mapsto x/d$ は $Z_d$ から $\Z\_{n/d}$ への全単射写像であるため、$n = \sum_{d \| n} \varphi(n/d) = \sum_{d \| n} \varphi(d)$。
