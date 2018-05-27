@@ -64,7 +64,7 @@ $x,y \in R$ について、$x \cdot y =e$ なる $y$ を持つ $x$ を **単元*
 
 単元 $x$ の逆元は一意に定まり $x^{-1}$ と表す。
 
-単元の集合 $R^*$ は、乗算について $R$ の部分郡である。
+単元の集合 $R^*$ は、乗算について $R$ の部分群である。
 
 [例]
 
@@ -97,4 +97,12 @@ $p$ を素数とする。$[x] \ne 0$ なる $[x] \in \Z$ は単元である。
 
 > ![](images/1.png)
 >
-> 出典: **[大人になってからの再学習 (zellij.hatenablog.com): 郡・環・体](http://zellij.hatenablog.com/entry/20121211/p1)**
+> 出典: **[大人になってからの再学習 (zellij.hatenablog.com): 群・環・体](http://zellij.hatenablog.com/entry/20121211/p1)**
+
+## Definition A.19. The Prime Residue Class Group.
+
+<!-- textlint-disable preset-japanese/no-doubled-joshi -->
+
+$\Z_n$ の単位元の部分群 $\Z_n^\* := \{ x \in \Z_n \| x \; \rm{は} \; \Z_n \; \rm{の単元} \}$ を、 $n$ を法とした *prime residue class group* と呼ぶ。
+
+<!-- textlint-enable preset-japanese/no-doubled-joshi -->
