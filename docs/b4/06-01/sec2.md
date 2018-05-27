@@ -51,3 +51,26 @@ $$ [a] \cdot [b] = [a \cdot b] $$
 $\Z_n$ は $[1]$ を **単位元** (*unit element*) に持つ **可換環** (*commutative ring*) であり、$n$ を法とする **剰余環** (*residue class ring*) と呼ぶ。
 
 <!-- textlint-enable preset-japanese/no-doubled-joshi -->
+
+## Definition A.16. Unit and Multiplicative Inverse - 単元と逆元
+
+$R$ を単位元 $e$ を持つ可換環とする。
+
+$x,y \in R$ について、$x \cdot y =e$ なる $y$ を持つ $x$ を **単元** (*unit*) と呼ぶ。また、$y$ を $x$ の **逆元** (*multiplicative inverse*) と言う。
+
+単元の部分集合を $R^*$ と表す。
+
+[注]
+
+単元 $x$ の逆元は一意に定まり $x^{-1}$ と表す。
+
+単元の集合 $R^*$ は、乗算について $R$ の部分郡である。
+
+[例]
+
+$\Z$ の 単元は $1$ と $-1$ のみである。
+
+剰余環はより多くの単元を持つ。
+$p$ を素数とすれば $[0]$ 以外の全ての $\Z_p$ の元は単元である。
+
+$[x] \in \Z_n$ が単元であり、 $[y]$ が $[x]$ の逆元であれば、$[x] \cdot [y] = 1$、従って $x \cdot y - 1$ は $n$ で割り切れる。
