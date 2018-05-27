@@ -1,12 +1,16 @@
 {
 	"rules": {
 		"preset-japanese": {
-			"sentence-length": false
+			"sentence-length": false,
+			"no-doubled-joshi": {
+				"allow": ["と"]
+			}
 		},
 		"preset-ja-technical-writing": {
 			"max-kanji-continuous-len": false,
 			"sentence-length": false,
-			"ja-no-weak-phrase": false
+			"ja-no-weak-phrase": false,
+			"no-doubled-joshi": false
 		},
 		"ja-hiragana-fukushi": true,
 		"ja-hiragana-hojodoushi": true,

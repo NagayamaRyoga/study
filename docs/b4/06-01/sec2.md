@@ -46,11 +46,7 @@ $$ [a] + [b] = [a+b] $$
 
 $$ [a] \cdot [b] = [a \cdot b] $$
 
-<!-- textlint-disable preset-japanese/no-doubled-joshi -->
-
 $\Z_n$ は $[1]$ を **単位元** (*unit element*) に持つ **可換環** (*commutative ring*) であり、$n$ を法とする **剰余環** (*residue class ring*) と呼ぶ。
-
-<!-- textlint-enable preset-japanese/no-doubled-joshi -->
 
 ## Definition A.16. Unit and Multiplicative Inverse - 単元と逆元
 
@@ -101,8 +97,10 @@ $p$ を素数とする。$[x] \ne 0$ なる $[x] \in \Z$ は単元である。
 
 ## Definition A.19. The Prime Residue Class Group.
 
-<!-- textlint-disable preset-japanese/no-doubled-joshi -->
-
 $\Z_n$ の単位元の部分群 $\Z_n^\* := \{ x \in \Z_n \| x \; \rm{は} \; \Z_n \; \rm{の単元} \}$ を、 $n$ を法とした *prime residue class group* と呼ぶ。
 
-<!-- textlint-enable preset-japanese/no-doubled-joshi -->
+## Definition A.20. Cardinality - 基数
+
+$M$ を有限集合とする。
+
+$M$ の要素数を **基数** (*cardinality* / *order*) と呼び、$|M|$ と表す。
