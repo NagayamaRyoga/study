@@ -323,13 +323,13 @@ $$
 
 $a,b \in \Z$ とする。
 
-ユークリッドの互除法を用いて $\gcd(a,b)$ を求めるための反復回数は最大でも $\lfloor log_g(a) + 1 \rfloor$ 回である。
+ユークリッドの互除法を用いて $\gcd(a,b)$ を求めるための反復回数は最大でも $\lfloor \log_g(a) + 1 \rfloor$ 回である。
 
 [証明]
 
 反復回数を $n$ とする。
 
-$a \ge f_{n+1} \ge g^{n-1}$ ([Lemma A.9.](#lemma-a-9-)) の対数をとって $n - 1 \le \lfloor log_g(a) \rfloor$。
+$a \ge f_{n+1} \ge g^{n-1}$ ([Lemma A.9.](#lemma-a-9-)) の対数をとって $n - 1 \le \lfloor \log_g(a) \rfloor$。
 
 ## The Binary Encoding of Numbers. - 数値の2進符号化
 
@@ -343,7 +343,7 @@ $$ n = z_0 + z_1 \cdot 2^1 + ... + z_{k-2} \cdot 2^{k-2} + z_{k-1} \cdot 2^{k-1}
 
 $n \in \N$ のバイナリ長は通常 $|n|$ で表される (絶対値と紛らわしくない場合)。
 
-$n \in \N$ のバイナリ長は $\lfloor log_2(n) \rfloor + 1$ である。
+$n \in \N$ のバイナリ長は $\lfloor \log_2(n) \rfloor + 1$ である。
 
 バイナリ長が $k$ の自然数 $n \in \N$ は、$2^{k-1} \le n \le 2^k - 1$ である。
 

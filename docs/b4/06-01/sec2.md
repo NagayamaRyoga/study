@@ -128,3 +128,35 @@ $k \in \{ 1, ..., n \}$ について $k$ はただ1つの $Z_d$ に属する。
 それゆえ、$n = \sum_{d \| n} |Z_d|$。
 
 $x \mapsto x/d$ は $Z_d$ から $\Z\_{n/d}$ への全単射写像であるため、$n = \sum_{d \| n} \varphi(n/d) = \sum_{d \| n} \varphi(d)$。
+
+## Corollary A.23.
+
+素数 $p$, $k \in \N$ について、$\varphi(p^k) = p^{k-1}(p-1)$。
+
+[証明]
+
+[Proposition A.22.](#proposition-a-22-) より、
+
+$$ \varphi(1) + \varphi(p) + \varphi(p^2) + ... + \varphi(p^k) = p^k, $$
+
+$$ \varphi(1) + \varphi(p) + \varphi(p^2) + ... + \varphi(p^{k-1}) = p^{k-1}. $$
+
+よって、
+
+$$ \varphi(p^k) = p^k - p^{k-1} = p^{k-1} (p - 1). $$
+
+[注]
+
+1. Section A.3. 中国の剰余定理を使うと、素数の累乗でない $n$ についての $\varphi(n)$ の公式を得られる。
+
+2. この本のいくつかの点では、$\varphi(n) / n$ の下限が必要になる。
+
+$$ \varphi(n) > \frac{n}{e^\gamma \log(\log(n)) + \frac{2.6}{\log(\log(n))}}, \quad (\rm{オイラー定数} \; \gamma = 0.5772...) $$
+
+例えば、
+
+$$ \varphi(n) > \frac{n}{6 \log(\log(n))} \quad (n \ge 1.3 \cdot 10^6). $$
+
+RSA暗号方式はFermatとEulerの業績に基づいている。
+
+これらは、以下の命題の特殊なケースである。

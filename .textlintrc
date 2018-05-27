@@ -9,6 +9,7 @@
 		"preset-ja-technical-writing": {
 			"max-kanji-continuous-len": false,
 			"sentence-length": false,
+			"ja-no-mixed-period": false,
 			"ja-no-weak-phrase": false,
 			"no-doubled-joshi": false
 		},
