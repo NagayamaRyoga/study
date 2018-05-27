@@ -9,6 +9,8 @@
 			.replace(/\\\|/g, '\\mid')
 			.replace(/\\{/g, '\\lbrace')
 			.replace(/\\}/g, '\\rbrace')
+			.replace(/\\lcm/g, '\\rm{lcm}')
+			.replace(/\\mod/g, '\\bmod')
 			.replace(/\\Z/g, '\\mathbb{Z}')
 			.replace(/\\N/g, '\\mathbb{N}');
 
