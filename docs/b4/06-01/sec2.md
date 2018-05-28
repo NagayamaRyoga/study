@@ -202,3 +202,73 @@ FermatはFermat最終定理として知られる有名な推測を述べた。
 Fermatの最終定理: $n \ge 3$ について方程式 $x^n = y^n = z^n$ を満たす $x,y,z$ が存在しない。
 
 300年以上にわたってFermatの最終定理は未解決問題だったが、1995年に Andrew Wiles によって証明された。
+
+EulerはFermatの小定理を一般化した。
+
+## Proposition A.26.
+
+$n \in \N$, $a \in \Z$ を $n$ と互いに素な数とすると、
+
+$$ a^{\varphi(n)} \equiv 1 \mod n. $$
+
+[証明]
+
+[Proposition A.24.](#proposition-a-24-) より、$n$ を法とする剰余類 $[a]$ は単元であり、$|\Z_n^*| = \varphi(n)$。
+
+## Fast Modular Exponentiation. - 高速冪剰余
+
+暗号では、しばしば累乗 $x^e$ または冪剰余 $x^e \mod n$ を計算しなければならない。
+
+これは **平方乗算法** (*square-and-multiply*) とも呼ばれる **高速累乗アルゴリズム** (*fast exponentiation algorithm*) で効率的に行うことが出来る。
+
+指数 $e$ が $2$ の累乗 $e = 2^k$ であった場合、逐次2乗することで累乗を求められる。
+
+$$ x^e = x^{2^k} = (((...((x^2)^2)^2...)^2)^2)^2 $$
+
+この方法では、$x^e$ を $k$ 回の2乗演算で求められる。
+
+指数 $e$ が $2$ の累乗でないときは、2進表現を活用する。
+
+$e$ が $k$ bit の整数 $2^{k-1} \le e \le 2^k-1$ と仮定する。
+
+$$
+\begin{split}
+    e &= 2^{k-1} e_{k-1} + 2^{k-2} e_{k-2} + ... + 2^1 e_1 + 2^0 e_0 \\\\
+      &= (2^{k-2} e_{k-1} + 2^{k-3} e_{k-2} + ... + e_1) \cdot 2 + e_0 \\\\
+      &= (... ((2 e_{k-1} + e_{k-2}) \cdot 2 + e_{k-3}) \cdot + ... + e_1) \cdot 2 + e_0 \quad (\rm{ただし} \; e_{k-1} = 1)
+\end{split}
+$$
+
+従って、
+
+$$
+\begin{split}
+    x^e &= x^{(... ((2 e_{k-1} + e_{k-2}) \cdot 2 + e_{k-3}) \cdot + ... + e_1) \cdot 2 + e_0} \\\\
+        &= (x^{(...((2 e_{k-1} + e_{k-2})) \cdot 2 + ... + e_1)})^2 \cdot x^{e_0} \\\\
+        &= (...(((x^2 \cdot x^{e_{k-2}})^2 \cdot x^{e_{k-3}})^2 \cdot ...)^2 \cdot x^{e_1})^2 \cdot x^{e_0}.
+\end{split}
+$$
+
+$x^e$ は $k-1$ ステップで計算でき、各ステップは中間結果の2乗と、$e$ の対応する桁 $e_i$ が $1$ であればさらに $x$ に乗算することで求められる。
+
+冪剰余 $x^e \mod n$ を計算したい場合は、各乗算の後に $\mod n$ を取る。
+
+## Algorithm A.27. Fast Modular Exponentiation Algorithm. - 高速冪剰余
+
+```
+int ModPower(int x, n, bitString e[k-1] ... e[0])
+1   y ← x
+2   for i ← k-2 downto 0 do
+3       y ← y^2 ・ x^e[i] mod n
+4   return y
+```
+
+## Proposition A.28.
+
+$l = \lfloor \log_2 e \rfloor$ とする。
+
+$x^e \mod n$ は $l$ 回の2乗、$l$ 回の乗算、$l$ 回の剰余で計算できる。
+
+[証明]
+
+bit列 $e$ のbit長は $\lfloor \log_2 (e) \rfloor + 1$。
