@@ -19,15 +19,15 @@ main {
 
 #body h1::before {
 	counter-increment: chapter;
-	content: counter(chapter) ". ";
+	/* content: counter(chapter) ". "; */
 }
 #body h2::before {
 	counter-increment: sub-chapter;
-	content: counter(chapter) "." counter(sub-chapter) ". ";
+	/* content: counter(chapter) "." counter(sub-chapter) ". "; */
 }
 #body h3::before {
 	counter-increment: section;
-	content: counter(chapter) "." counter(sub-chapter) "." counter(section) ". ";
+	/* content: counter(chapter) "." counter(sub-chapter) "." counter(section) ". "; */
 }
 
 #index {
@@ -57,13 +57,13 @@ main {
 
 #index ol li.item-H1 a::before {
 	counter-increment: chapter;
-	content: counter(chapter) ". ";
+	/* content: counter(chapter) ". "; */
 }
 #index ol li.item-H2 a::before {
 	counter-increment: sub-chapter;
-	content: counter(chapter) "." counter(sub-chapter) ". ";
+	/* content: counter(chapter) "." counter(sub-chapter) ". "; */
 }
 #index ol li.item-H3 a::before {
 	counter-increment: section;
-	content: counter(chapter) "." counter(sub-chapter) "." counter(section) ". ";
+	/* content: counter(chapter) "." counter(sub-chapter) "." counter(section) ". "; */
 }
