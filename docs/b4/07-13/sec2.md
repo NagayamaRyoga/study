@@ -20,3 +20,11 @@ $$ Exp: \Z_{p-1} \longrightarrow \Z_p^*, \; x \longmapsto g^x $$
 これは、[平方乗算法 (Algorithm A.27.)](../06-08/#algorithm-a-27-fast-modular-exponentiation-algorithm-) などによって効率的に求められるが、$Exp$ の逆関数 $Log$ を計算するための効率的なアルゴリズムは知られておらず、また、そのようなアルゴリズムは存在しないと広く考えられている。
 
 この仮定は、**離散対数仮定** (*discrete logarithm assumption*) と呼ばれている。(正確な定義は Definition 6.1.)
+
+## 3.4.1. ElGamal Encryption
+
+RSA関数とは対照的に、$Exp$ は "抜け穴" のない一方向関数である。
+
+$Exp$ は逆関数の計算を簡単に行うための付加的な情報を持たない。
+
+それにも関わらず、$Exp$ は ElGamal 暗号方式の基礎となっている。([ElGamal84])
