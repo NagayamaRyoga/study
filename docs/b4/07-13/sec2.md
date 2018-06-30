@@ -21,6 +21,7 @@ $$ Exp: \Z_{p-1} \longrightarrow \Z_p^*, \; x \longmapsto g^x $$
 
 この仮定は、**離散対数仮定** (*discrete logarithm assumption*) と呼ばれている。(正確な定義は Definition 6.1.)
 
+
 ## 3.4.1. ElGamal Encryption
 
 RSA関数とは対照的に、$Exp$ は "抜け穴" のない一方向関数である。
@@ -110,3 +111,37 @@ Bob は $\tilde{c} = (g^{k+\tilde{k}}, y^{k+\tilde{k}} m \tilde{m})$ の平文 $
 Eve は単に $\tilde{m}$ で割ることで $c$ の平文 $m$ を得ることができる。
 
 Bob にとって $m \tilde{m}$ は乱数にみえるため、それを疑わしく思うことはない。
+
+
+## ElGamal Signatures - ElGamal署名
+
+### Key Generation - 鍵の生成
+
+署名者 Alice は上と同じ方法で $y = g^x$ なる公開鍵 $(p,g,y)$ 及び $(p,g,x)$ を得る。
+
+### Signing - 署名
+
+署名されるメッセージ $m$ が $\Z_{p-1}$ の要素であると仮定する。
+(実際にはハッシュ関数 $h$ を用いてメッセージを $\Z_{p-1}$ に写像し、そのハッシュ値に署名する。)
+
+署名は、署名者 Alice によって次のように生成される。
+
+1. ランダムな整数 $1 \le k \le p-2, \; (gcd(k, p-1) = 1)$ を選択する。
+
+2. $r := g^k,$
+
+    $s := k^{-1} (m-rx) \mod (p-1).$
+
+3. $(m,r,s)$ が署名になる。
+
+### Verification - 検証
+
+受信者 Bob は以下のように署名 $(m,r,s)$ を検証する。
+
+1. $1 \le r \le p-1$ であることを検証する。
+
+2. $v := g^m,$
+
+    $w := y^r r^s.$ ($y$ は Alice の公開鍵)
+
+3. $v = w$ であることを検証する。
