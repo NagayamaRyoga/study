@@ -127,7 +127,7 @@ $k \in \{ 1, ..., n \}$ について $k$ はただ1つの $Z_d$ に属する。
 
 それゆえ、$n = \sum_{d \| n} |Z_d|$。
 
-$x \mapsto x/d$ は $Z_d$ から $\Z\_{n/d}$ への全単射写像であるため、$n = \sum_{d \| n} \varphi(n/d) = \sum_{d \| n} \varphi(d)$。
+$x \mapsto x/d$ は $Z_d$ から $\Z_{n/d}$ への全単射写像であるため、$n = \sum_{d \| n} \varphi(n/d) = \sum_{d \| n} \varphi(d)$。
 
 ## Corollary A.23.
 
