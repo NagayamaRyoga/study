@@ -214,3 +214,12 @@ $$ w = y^r r^s = (g^x)^r (g^k)^s = g^{rx} g^{k k^{-1} (m-rx)} = g^m = v $$
 
     $r' \equiv r \mod p$ かつ $r' \equiv r u \mod (p-1)$ なる $r' \in \Z$ が中国の剰余定理 (Theorem A.30.) で得られ、
     $(m', r', s')$ は有効な署名となる。
+
+
+## 3.4.3. Digital Signature Algorithm
+
+1991年、NIST は デジタル署名標準 (DSS) を提案した。([NIST94])
+
+DSS は、政府機関や金融機関が標準的に使用する電子署名方式になった。
+
+DSS には ElGamal アルゴリズムと非常によく似たデジタル署名アルゴリズム (DSA) が含まれている。
