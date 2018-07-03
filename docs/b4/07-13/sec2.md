@@ -317,3 +317,13 @@ $$ r = \tilde{r} \mod q \equiv ((g^m y^r)^t \mod p) \mod q $$
 以下に検証条件の完全な証明を示す。([Proposition 3.8.](#TODO))
 
 右辺の累乗は $\Z_p$ で行われることに注意する。
+
+### Verification - 検証
+
+署名 $(m, r, s)$ を以下の手順で検証する。
+
+1. $1 \le r \le q-1$ かつ $1 \le s \le q-1$ であることを検証する。
+
+2. $q$ を法とした $s$ の逆数 $t := s^{-1}$ および、$v := ((g^m y^r)^t \mod p) \mod q$ を計算する。($y$ は 署名者 Alice の公開鍵。)
+
+3. $v = r$ であることを検証する。
