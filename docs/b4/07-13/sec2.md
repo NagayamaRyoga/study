@@ -256,3 +256,64 @@ $x$ は秘密に保たれ、$p$、$g$、$y = g^x$ が公開される。
 4. $(p, q, g, x)$ が秘密鍵、$y := g^x$ について $(p, q, g, y)$ が公開鍵である。
 
 <!-- textlint-enable preset-ja-technical-writing/max-comma -->
+
+### Signing - 署名
+
+DSA で署名されるメッセージ $m$ は $\Z_q$ の要素である必要がある。
+
+DSSでは、ハッシュ関数 $h$ を用いて実メッセージから $\Z_q$ の要素へと写像する。
+
+署名は次の手順で生成される。
+
+1. 乱数 $1 \le k \le q-1$ を選択する。
+
+2. $r := (g^k \mod p) \mod q$、$s := k^{-1} (m + rx) \mod q$
+
+    $s = 0$ なら 手順1. に戻る。(非常に低い確率でしか起こらない。)
+
+3. $(m, r, s)$ が署名になる。
+
+ElGamal署名方式の検証条件を思い返す。
+
+> $\tilde{r} := g^k \mod p$、
+> $\tilde{s} := k^{-1} (m - \tilde{r} x) \mod (p-1)$
+> なる $(m, \tilde{r}, \tilde{s})$ について、
+>
+> $$ y^\tilde{r} \tilde{r}^\tilde{s} \equiv g^m \mod p $$
+
+> で署名の検証が行える。
+
+DSA の $\tilde{s}$ は、ElGamal 署名方式の $(m {\color{red}-} \tilde{r} x)$ ではなく、$(m {\color{red}+} \tilde{r} x)$ を用いて $\tilde{s} = k^{-1} (m + \tilde{r} x) \mod (p-1)$ と定義される。
+さらに、$y$ の指数 $\tilde{r}$ を $-\tilde{r}$ で置き換えると検証に用いる方程式は有効性を保つ。
+
+$$ y^{-\tilde{r}} \tilde{r}^\tilde{s} \equiv g^m \mod p \tag{3.1} $$
+
+> [注釈] 上の式の証明
+>
+> $y^{-\tilde{r}} \tilde{r}^\tilde{s} = (g^x)^{-\tilde{r}} (g^k)^{k^{-1} (m + \tilde{r} x)} = g^{-\tilde{r} x} g^{m + \tilde{r} x} = g^m$
+
+DSA では、$g$ (と $\tilde{r}$ および $y$) は $\Z_p^*$ の次数 $q$ の要素であるため、式 (3.1) の指数 $\tilde{r}$ と $\tilde{s}$ はそれぞれ
+$\tilde{r} \mod q = r$、$\tilde{s} \mod q = s$ と置き換えることができる。
+
+ここで、式 (3.1) から ($\tilde{r}$ と $\tilde{s}$ ではなく) $q$ を法とする $r$ と $s$ を用いた検証条件の方程式が得られるのではないかという着想が得られる。
+
+しかし、指数 $\tilde{r}$ は (3.1) の基数部分にも現れる。
+両辺の等価性を維持したまま基数部分をより小さい数 $r$ に単に置き換えることはできないため、これは簡単には導けない。
+
+この困難を克服するため、まず 式 (3.1) を次のように変換する。
+
+$$ \tilde{r}^s \equiv g^m y^r \mod p $$
+
+ここで、$s$ が $\Z_q^*$ の単元であることを利用して左辺の冪乗を取り除く。
+
+すなわち、$t = s^{-1} \mod q$ について、
+
+$$ \tilde{r} \equiv (g^m y^r)^t \mod p $$
+
+次に、両辺について $q$ の法を取ることで、以下の検証条件を得られる。
+
+$$ r = \tilde{r} \mod q \equiv ((g^m y^r)^t \mod p) \mod q $$
+
+以下に検証条件の完全な証明を示す。([Proposition 3.8.](#TODO))
+
+右辺の累乗は $\Z_p$ で行われることに注意する。
