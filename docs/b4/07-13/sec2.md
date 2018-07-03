@@ -1,6 +1,6 @@
 # 3.4 The Discrete Logarithm - 離散対数
 
-[Section 3.3.](#TODO) では、RSA暗号方式について説明した。
+Section 3.3. では、RSA暗号方式について説明した。
 
 RSA関数は要素 $m$ を $e$ 乗する。
 
@@ -314,7 +314,7 @@ $$ \tilde{r} \equiv (g^m y^r)^t \mod p $$
 
 $$ r = \tilde{r} \mod q \equiv ((g^m y^r)^t \mod p) \mod q $$
 
-以下に検証条件の完全な証明を示す。([Proposition 3.8.](#TODO))
+以下に検証条件の完全な証明を示す。([Proposition 3.8.](#proposition-3-8-))
 
 右辺の累乗は $\Z_p$ で行われることに注意する。
 
@@ -327,3 +327,25 @@ $$ r = \tilde{r} \mod q \equiv ((g^m y^r)^t \mod p) \mod q $$
 2. $q$ を法とした $s$ の逆数 $t := s^{-1}$ および、$v := ((g^m y^r)^t \mod p) \mod q$ を計算する。($y$ は 署名者 Alice の公開鍵。)
 
 3. $v = r$ であることを検証する。
+
+## Proposition 3.8.
+
+署名 $(m, r, s)$ について、$v = r$。
+
+[証明]
+
+$g^q \equiv 1 \mod p$ であることを利用する。
+
+$$
+\begin{split}
+    v &= ((g^m y^r)^t \mod p) \mod q \\\\
+      &= ((g^{m} g^{rx})^t \mod p) \mod q \\\\
+      &= (g^{(m+rx)t} \mod p) \mod q \\\\
+      &= (g^{(m+rx)t \mod q} \mod p) \mod q \\\\
+      &= (g^{(m+rx) s^{-1} \mod q} \mod p) \mod q \\\\
+      &= (g^{(m+rx) (k^{-1} (m+rx))^{-1} \mod q} \mod p) \mod q \\\\
+      &= (g^k \mod p) \mod q \\\\
+      &= \tilde{r} \mod q \\\\
+      &= r \\\\
+\end{split}
+$$
