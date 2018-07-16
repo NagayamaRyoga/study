@@ -1,4 +1,4 @@
-# Algorithm 3.6.
+## Algorithm 3.6.
 
 ```
 int A(int n, e, y)
@@ -14,7 +14,7 @@ int A(int n, e, y)
 8   if Fが (m, s) を返すなら then sを返す
 ```
 
-1行目: $A$ は $F$ がこれから偽造する署名のメッセージ $m \in \{m_1, ..., m_r\}$ を推測しようと試みる。
+1行目: $A$ は $F$ がこれから偽造する署名のメッセージ $m \in \{ m_1, ..., m_r \}$ を推測しようと試みる。
 
 $F$ は $m$ のハッシュ値を知っていなければならない。
 
@@ -58,7 +58,7 @@ Section 9.5. では、Boneh の SAEP 暗号方式のランダムオラクル証�
 次節で説明する署名方式は、フルドメインハッシュ関数には依存しない。
 その方式はハッシュ化されたメッセージを巧みに署名関数のドメインに埋め込む。
 
-# PSS - The Probabilistic signature scheme
+## PSS - The Probabilistic signature scheme
 
 **PSS** (*The Probabilistic signature scheme* / 確率署名方式) が、[BelRog96] で紹介された。
 
@@ -71,15 +71,15 @@ Section 9.5. では、Boneh の SAEP 暗号方式のランダムオラクル証�
 
 より一般的には、トラップドア順列 (*trapdoor permutation*)
 
-$$ f \; : \; D \longrightarrow D, \; D \subset \{0,1\}^n, $$
+$$ f \; : \; D \longrightarrow D, \; D \subset \{ 0,1 \}^n, $$
 
 疑似乱数 bit 生成器
 
-$$ G \; : \; \{0,1\}^l \longrightarrow \{0,1\}^k \times \{0,1\}^{n-(l+k)}, \quad w \longmapsto (G_1(w), G_2(w)) $$
+$$ G \; : \; \{ 0,1 \}^l \longrightarrow \{ 0,1 \}^k \times \{ 0,1 \}^{n-(l+k)}, \quad w \longmapsto (G_1(w), G_2(w)) $$
 
 そしてハッシュ関数
 
-$$ h \; : \; \{0,1\}^* \longrightarrow \{0,1\}^l $$
+$$ h \; : \; \{ 0,1 \}^* \longrightarrow \{ 0,1 \}^l $$
 
 が必要になる。
 
@@ -88,3 +88,33 @@ $$ h \; : \; \{0,1\}^* \longrightarrow \{0,1\}^l $$
 PSS は任意の長さのメッセージに適用できる。
 
 メッセージ $m$ は署名 $\sigma$ から復元することは出来ない。
+
+### Signing - 署名
+
+メッセージ $m \in \{ 0,1 \}^*$ に署名するために、署名者 Alice は以下の3工程で署名 $\sigma$ を生成する。
+
+1. $r \in \{ 0,1 \}^k$ をランダムに選択し、$w := h(m \|\| r)$ を求める。
+
+2. $G(w) = (G_1(w), G_2(w))$ と、$y := w \;\|\|\; (G_1(w) \oplus r) \;\|\|\; G_2(w)$ を計算する。
+
+    ただし、$y \notin D$ なら 1. に戻る。
+
+3. $m$ の署名は $\sigma := f^{-1}(y)$。
+
+署名者 Alice がメッセージ $m$ に署名したい場合、まず乱数 $r$ をメッセージに連結し ($m \|\| r$)、ハッシュ関数 $h$ を適用する ($w := h(m \|\| r)$)。
+
+次に、生成器 $G$ をハッシュ値 $w$ に適用する。
+
+$G(w)$ の $G_1(w)$ の部分は、乱数 $r$ を隠すために使用される。
+$G_2(w)$ を $w \|\| G_1(w) \oplus r$ に結合して適切な長さの $y$ を得る
+。
+$y$ のすべての bit はメッセージ $m$ に依存する。
+
+$m$ を $f$ のドメインで変換することで写像 $m \longmapsto y$ はランダム関数のように振る舞う。
+この仮定は署名方式の安全性を保証する。
+
+最後に、$y$ を $f$ で復号して署名 $\sigma$ を得る。
+
+乱数 $r$ は各メッセージ $m$ について独立に選択される。
+そのため、同じメッセージを2回署名しても異なる署名が得られる。
+
