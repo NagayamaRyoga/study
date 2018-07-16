@@ -7,6 +7,16 @@ main {
 	margin-bottom: 0.5em;
 }
 
+@media print {
+	.markdown-body {
+		font-family: serif;
+		font-size: 12px;
+	}
+	.markdown-body p {
+		margin-bottom: 0.2em;
+	}
+}
+
 #body {
 	counter-reset: chapter;
 }
