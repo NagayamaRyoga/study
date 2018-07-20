@@ -7,6 +7,7 @@
 			.replace(/。/g, '. ')
 			.replace(/、/g, ', ')
 			.replace(/_/g, '\\_')
+			.replace(/\\;/g, '\\\\;')
 			.replace(/\\\|/g, '\\mid')
 			.replace(/\\{/g, '\\lbrace')
 			.replace(/\\}/g, '\\rbrace')
