@@ -1,5 +1,5 @@
 {
-  "name": "study_meeting",
+  "name": "study",
   "version": "0.0.1",
   "description": "study meeting 2018. - kit info sec lab.",
   "directories": {
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NagayamaRyoga/study_meeting.git"
+    "url": "git+https://github.com/NagayamaRyoga/study.git"
   },
   "author": "NagayamaRyoga",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/NagayamaRyoga/study_meeting/issues"
+    "url": "https://github.com/NagayamaRyoga/study/issues"
   },
-  "homepage": "https://github.com/NagayamaRyoga/study_meeting#readme",
+  "homepage": "https://github.com/NagayamaRyoga/study#readme",
   "devDependencies": {
     "http-server": "^0.11.1",
     "pre-commit": "^1.2.2"
