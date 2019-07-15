@@ -13,7 +13,7 @@
 OpenBSD、FreeBSD、NetBSD、Red Hatなどではそれぞれ数%ずつの違いしかなかった。
 この理由は簡単に説明できる。
 どれも同じコンパイラ (なんらかのバージョンのGCC) を利用していたためである。
-Windows XP では、異なるコンパイラが使用されているので分布も最も異なる。
+Windows XP では、異なるコンパイラが使用されているので分布ももっとも異なる。
 
 Figure 1 は異なる命令セット間の "the repartition of bandwidth" を示している。
 
