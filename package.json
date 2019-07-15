@@ -34,7 +34,8 @@
     "textlint-rule-ja-hiragana-keishikimeishi": "^1.0.2",
     "textlint-rule-ja-unnatural-alphabet": "^1.3.0",
     "textlint-rule-preset-ja-technical-writing": "^2.0.0",
-    "textlint-rule-preset-japanese": "^4.0.3"
+    "textlint-rule-preset-japanese": "^4.0.3",
+    "textlint-rule-prh": "^5.2.1"
   },
   "pre-commit": [
     "test"
