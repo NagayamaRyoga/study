@@ -54,3 +54,51 @@
 $A$ が抽出可能であれば認識可能でもある。
 $X$ を $A$ に関する抽出アルゴリズムとするとき、認識関数 $R(P', P)$ は抽出された透かし $X(P', P)$ が $W \in candidate(A, P)$ のうちのいずれかと一致するかの判定によって構成できる。
 <!-- textlint-enable preset-japanese/no-doubled-conjunction -->
+
+---
+
+### Theorem 1.
+
+すべての埋め込み器 $A$ について、唯一の認識器が存在する。
+その $A$ に関する唯一の認識器を $Reg(A)$ と表す。
+
+**証明**:
+
+任意の $P, P' \in \bf{P}$ について、 $R(P', P)$ を以下のように定義する。
+
+- $P' = A(P, W)$ となる、ある $W \in candidate(A, P)$ が存在するならば $R(P', P) = TRUE$
+- そうでなければ $R(P', P) = FALSE$
+
+$R$ は明らかに $A$ の認識器である。
+
+---
+
+Theorem 1 と Example 2 よりすべての埋め込み器が抽出可能ではないことがわかるが、一方ですべての埋め込み器は認識可能である。
+
+Theorem 1 は唯一の抽象的な認識器が存在していることを示しているが、そのような認識器を実現する具体的な認識アルゴリズムは複数存在する可能性がある。
+
+---
+
+### Property 1.
+
+すべての $A$ について、$Reg(A)$ は $A$ に関するポジティブ/ネガティブ両方の部分認識器である。
+
+---
+
+上記の概念を説明するため、4つの例を示す。
+
+---
+
+### Example 3. (Trivial partial recognizers)
+
+部分認識の概念はとても柔軟だ。
+以下はいくつかの *trivial partial recognitions* である。
+
+認識器 $A : \bf{P} \times \bf{W} \rightarrow \bf{P}$ について、関数 $S : \bf{P} \times \bf{P} \rightarrow \{TRUE, FALSE\}$ を $P', P \in \bf{P}$ を用いて $S(P', P) = TRUE$ と定義する。
+これは $A$ に関するポジティブ部分認識である。
+
+このような関数 $S$ を、$A$ に関する *trivial positive-partial recognizer* と呼び、$TrivPP(A)$ と表す。
+
+また、$S(P', P) = FALSE$ は *trivial negative-partial recognizer* であり、$TrivNP(A)$ と表す。
+
+---
