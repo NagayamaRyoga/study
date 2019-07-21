@@ -7,3 +7,9 @@ rules:
     patterns:
       - /埋込み/
       - /埋込/
+  - expected: 埋め込み器
+    patterns:
+      - /埋め込み機/
+  - expected: 抽出器
+    patterns:
+      - /抽出機/

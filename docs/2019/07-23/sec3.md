@@ -138,7 +138,7 @@ Fig. 2 から分かるとおり、$010$ の埋め込まれたグラフと $111$ 
 ### Definition 6. (Extractor)
 
 $A$ を埋め込み器とする。
-関数 $X : \bf{P} × \bf{P} \rightarrow \bf{W}$ が以下の特徴を満たすならば、$A$ に関する抽出器と呼ばれる。
+関数 $X : \bf{P} \times \bf{P} \rightarrow \bf{W}$ が以下の特徴を満たすならば、$A$ に関する抽出器と呼ばれる。
 
 任意の $P \in \bf{P}, W \in \bf{W}$ について、
 - $W \in \rm{候補透かし} \; (P, A)$ かつ $P' = A(P, W)$ ならば $X(P', P) = W$
