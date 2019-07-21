@@ -3,3 +3,7 @@ rules:
   - expected: かかわらず
     patterns:
       - /関わらず/
+  - expected: 埋め込み
+    patterns:
+      - /埋込み/
+      - /埋込/
