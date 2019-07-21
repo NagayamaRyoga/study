@@ -107,7 +107,7 @@ return G
 $A(P, W) \ne P$ である $W \in \bf{W}$ はプログラム $P$ と埋め込み器 $A$ に関する **候補透かし**(*a candidate watermark*) と呼ばれる
 
 すべての候補透かしはプログラム $P$ と埋め込み器 $A$ に関して候補透かしの集合を構成する。
-この集合を候補 $(P, A)$ と呼ぶ。
+この集合を $candidate(A, P)$ と呼ぶ。
 
 ---
 
@@ -141,7 +141,7 @@ $A$ を埋め込み器とする。
 関数 $X : \bf{P} \times \bf{P} \rightarrow \bf{W}$ が以下の特徴を満たすならば、$A$ に関する抽出器と呼ばれる。
 
 任意の $P \in \bf{P}, W \in \bf{W}$ について、
-- $W \in \rm{候補透かし} \; (P, A)$ かつ $P' = A(P, W)$ ならば $X(P', P) = W$
+- $W \in candidate(A, P)$ かつ $P' = A(P, W)$ ならば $X(P', P) = W$
 - そうでなければ $X(P', P) = \epsilon$
 
 ---

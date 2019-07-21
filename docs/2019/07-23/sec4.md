@@ -17,22 +17,40 @@
 
 ### Definition 8. (Positive-partial recognition)
 
-埋め込み器 $A : \bf{P} \times W \rightarrow \bf{P}$ について、 関数 $R : P \times P \rightarrow \{TRUE, FALSE\}$ が以下を満たすならば、$R$ を埋め込み器 $A$ に対するポジティブ部分認識関数と呼ぶ。
+埋め込み器 $A : \bf{P} \times W \rightarrow \bf{P}$ について、 関数 $R : P \times P \rightarrow \{TRUE, FALSE\}$ が以下を満たすならば、$R$ を埋め込み器 $A$ に関するポジティブ部分認識関数と呼ぶ。
 
 <!-- textlint-disable preset-ja-technical-writing/max-comma -->
-- 任意の $P, P' \in \bf{P}$ について $P' = A(P, W)$ であるような $W \in \rm{候補透かし} (A, P)$) が存在すれば $R(P', P) = TRUE$ である。
+- 任意の $P, P' \in \bf{P}$ について $P' = A(P, W)$ であるような $W \in candidate(A, P)$ が存在すれば $R(P', P) = TRUE$ である。
 <!-- textlint-enable preset-ja-technical-writing/max-comma -->
-
----
+--W \in candidate-
 
 実際にプログラムへ透かしが埋め込まれていれば認識器がそれを検出するが、透かしが埋め込まれているにもかかわらずプログラムが透かしを持っていないと判定するかもしれないような認識をネガティブ部分認識という。
 
----
+- のうちのいずれかと一致するかの判定によって構成できる。--
 
-### Definition 9. (Negative-partial recognition)
-
-埋め込み器 $A : \bf{P} \times W \rightarrow \bf{P}$ について、 関数 $R : P \times P \rightarrow \{TRUE, FALSE\}$ が以下を満たすならば、$R$ を埋め込み器 $A$ に対するポジティブ部分認識関数と呼ぶ。
+埋め込み器 $A : \bf{P} \times W \rightarrow \bf{P}$ について、 関数 $R : P \times P \rightarrow \{TRUE, FALSE\}$ が以下を満たすならば、$R$ を埋め込み器 $A$ に関するポジティブ部分認識関数と呼ぶ。
 
 - 任意の $P, P' \in \bf{P}$ について $R(P', P) = TRUE$ ならばある $W \in \bf{W}$ について $P' = A(P, W)$ である。
 
 ---
+
+(部分認識に対して) 完全な認識器はプログラム中の透かしの有無を正確に判定できる。
+
+---
+
+### Definition 10. (Recognizer)
+
+埋め込み器 $A : \bf{P} \times W \rightarrow \bf{P}$ について、 関数 $R : P \times P \rightarrow \{TRUE, FALSE\}$ が以下を満たすならば、$R$ を埋め込み器 $A$ に関する完全認識関数と呼ぶ。
+
+<!-- textlint-disable preset-ja-technical-writing/max-comma -->
+- 任意の $P, P' \in \bf{P}$ と、ある $W \in candidate(A, P)$ について $R(P', P) = TRUE \Longleftrightarrow P' = A(P, W)$ である。
+<!-- textlint-enable preset-ja-technical-writing/max-comma -->
+
+また、$A$ に関する認識器が存在するとき、$A$ を認識可能であるという。
+
+---
+
+<!-- textlint-disable preset-japanese/no-doubled-conjunction -->
+$A$ が抽出可能であれば認識可能でもある。
+$X$ を $A$ に関する抽出アルゴリズムとするとき、認識関数 $R(P', P)$ は抽出された透かし $X(P', P)$ が $W \in candidate(A, P)$ のうちのいずれかと一致するかの判定によって構成できる。
+<!-- textlint-enable preset-japanese/no-doubled-conjunction -->
