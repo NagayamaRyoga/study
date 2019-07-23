@@ -292,3 +292,46 @@ $A$ に関するブラインド認識器 $S$ を以下のように定義する�
 $R$ が $A$ に関するブラインド認識器であることは明らかである。
 
 ---
+
+### Property 3.
+
+すべての $A$ について、$BReg(A)$ は $A$ に関するポジティブ部分認識器かつネガティブ部分認識器である。
+
+---
+
+### Example 8. (Trivial blind partial recognizers)
+
+ブラインド部分認識器の概念もまた柔軟である。
+
+以下は**trivialブラインド部分認識器** である。
+
+埋め込み器 $A : \bf{P} \times \bf{W} \rightarrow \bf{P}$ について、$S(P) = TRUE$ と定義する。この定数関数は $A$ に関するブラインドポジティブ認識器であり、$TrivBPP(A)$ と書く。
+
+埋め込み器 $A : \bf{P} \times \bf{W} \rightarrow \bf{P}$ について、$S(P) = FALSE$ と定義する。この定数関数は $A$ に関するブラインドネガティブ認識器であり、$TrivBNP(A)$ と書く。
+
+---
+
+埋め込み器 $A$ について、複数のブラインドポジティブ認識器とブラインドネガティブ認識器が存在する。
+それらに関する強度を決定する必要がある。
+
+---
+
+### Definition 13. (Strength of blind partial recognizers)
+
+$BPP1$ と $BPP2$ を埋め込み器 $A$ に関するブラインドポジティブ部分認識器とする。
+もし任意の $W \in \bf{W}$ と 任意の $P' \in \bf{P}$ について、$BPP2(P') = TRUE \Longrightarrow BPP1(P') = TRUE$ ならば、$BPP2$ は $BPP1$ よりも強い。
+
+$BNP1$ と $BNP2$ を埋め込み器 $A$ に関するブラインドネガティブ部分認識器とする。
+もし任意の $W \in \bf{W}$ と 任意の $P' \in \bf{P}$ について、$BNP1(P') = TRUE \Longrightarrow BNP2(P') = TRUE$ ならば、$BNP2$ は $BNP1$ よりも強い。
+
+---
+
+### Property 4.
+
+<!-- textlint-disable preset-japanese/no-doubled-joshi -->
+すべての埋め込み器 $A$ について、$TrivBPP(A)$ はもっとも弱いブラインドポジティブ部分認識器であり、$BReg(A)$ はもっとも強い ブラインドポジティブ部分認識器である。
+
+同様に $TrivBNP(A)$ はもっとも弱いブラインドネガティブ部分認識器であり、$BReg(A)$ はもっとも強い ブラインドネガティブ部分認識器である。
+<!-- textlint-enable preset-japanese/no-doubled-joshi -->
+
+---
