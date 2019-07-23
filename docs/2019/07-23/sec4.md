@@ -120,8 +120,7 @@ if G が G' の部分グラフでない then
     return FALSE
 j := 0
 for i in (1 ... n) do
-    if G の 
-    vi に接続されていない2つの最近傍頂点 vi1, vi2 を見つける then
+    if G の vi に接続されていない2つの最近傍頂点 vi1, vi2 を見つける then
         j++
         if (vi, vi2) ∈ G' then
             G の vi と vi2 を接続する
@@ -133,7 +132,7 @@ if j=0 then
     return FALSE
 return TRUE
 ```
-**Figure 4: QPアルゴリズムのポジティブ認識器**
+**Figure 4: QPアルゴリズムのポジティブ部分認識器**
 
 ---
 
@@ -154,8 +153,7 @@ if G が G' の部分グラフでない then
     return FALSE
 j := 0
 for i in (1 ... n) do
-    if G の 
-    vi に接続されていない2つの最近傍頂点 vi1, vi2 を見つける then
+    if G の vi に接続されていない2つの最近傍頂点 vi1, vi2 を見つける then
         j++
         if (vi, vi2) ∈ G' then
             G の vi と vi2 を接続する
@@ -167,6 +165,63 @@ if j=0 then
     return FALSE
 return TRUE
 ```
-**Figure 6: QPアルゴリズムのネガティブ認識器**
+**Figure 6: QPアルゴリズムのネガティブ部分認識器**
+
+---
+
+### Example 6. (A recognizer for the QP algorithm)
+
+QPアルゴリズムの認識器を Fig. 7 に示す。
+
+```c
+Input:  透かしの埋め込まれていない n = |V| のグラフ G(V, E)
+        透かしの埋め込まれたグラフ G'
+Output: G' にメッセージ W が埋め込まれているかどうか
+Algorithm:
+if G が G' の部分グラフでない then
+    return FALSE
+j := 0
+for i in (1 ... n) do
+    if G の vi に接続されていない2つの最近傍頂点 vi1, vi2 を見つける then
+        j++
+        if (vi, vi2) ∈ G' then
+            G の vi と vi2 を接続する
+        else if (vi, vi1) ∈ G' then
+            G の vi と vi1 を接続する
+        else
+            return FALSE
+if j=0 then
+    return FALSE
+if |E'|≠|E|+j then
+    return FALSE
+return TRUE
+```
+**Figure 7: QPアルゴリズムの認識器**
+
+---
+
+極端にポジティブな部分認識器は常にプログラムに透かしが含まれていると識別し、極端にネガティブな部分認識器は常にプログラムに透かしが含まれていないと識別する。
+
+通常これら2つの認識器は便利でない。
+次は2つの認識関数の相対的な強度について考える。
+
+---
+
+### Definition 11. (Strength of partial recognizers)
+
+$PP1, PP2$ をそれぞれ埋め込み器 $A$ に関するポジティブ部分認識器とする。
+もし任意の $P, P' \in \bf{P}$ について $PP2(P', P) = TRUE \Longrightarrow PP1(P', P) = TRUE$ ならば、 $PP2$ は少なくとも $PP1$ と同じ強度であるという。
+
+$NP1, NP2$ をそれぞれ埋め込み器 $A$ に関するネガティブ部分認識器とする。
+もし任意の $P, P' \in \bf{P}$ について $NP1(P', P) = TRUE \Longrightarrow NP2(P', P) = TRUE$ ならば、 $NP2$ は少なくとも $NP1$ と同じ強度であるという。
+
+---
+
+### Property 2.
+
+<!-- textlint-disable preset-japanese/no-doubled-joshi -->
+認識器 $A$ について、$TrivPP(A)$ はもっとも弱いポジティブ部分認識器であり、$Reg(A)$ はもっとも強い部分認識器である。
+また、$TrivNP(A)$ はもっとも弱いネガティブ部分認識器であり、$Reg(A)$ はもっとも強い部分認識器である。
+<!-- textlint-enable preset-japanese/no-doubled-joshi -->
 
 ---
