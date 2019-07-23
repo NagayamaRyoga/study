@@ -225,3 +225,70 @@ $NP1, NP2$ をそれぞれ埋め込み器 $A$ に関するネガティブ部分�
 <!-- textlint-enable preset-japanese/no-doubled-joshi -->
 
 ---
+
+## 4.2. Blind recognizers
+
+状況によっては、透かしを検出する際に元のプログラムが使用できないこともある。
+元のプログラムを利用せずに認識を行うことをブラインド認識という。
+
+---
+
+### Definition 12. (Blind and informed recognizer)
+
+埋め込み器 $A : \bf{P} \times \bf{W} \rightarrow \bf{P}$ と関数 $S : \bf{P} \rightarrow \{TRUE, FALSE\}$ について、以下の定義を与える。
+
+- $S$ が任意の $P' \in \bf{P}$ について以下の特性を持つ場合、$S$ を埋め込み器 $A$ に関するブラインドポジティブ部分認識器と呼ぶ。
+
+    - $P' = A(A, W)$ となる $P \in \bf{P}$ と $W \in candidate(A, P)$ が存在するとき、$S(P') = TRUE$
+
+- $S$ が任意の $P' \in \bf{P}$ について以下の特性を持つ場合、$S$ を埋め込み器 $A$ に関するブラインドネガティブ部分認識器と呼ぶ。
+
+    - $S(P') = TRUE$ ならば $P' = A(A, W)$ となる $P \in \bf{P}$ と $W \in candidate(A, P)$ が存在する
+
+- $S$ が任意の $P' \in \bf{P}$ について以下の特性を持つ場合、$S$ を埋め込み器 $A$ に関するブラインド認識器と呼ぶ。
+
+    - $S(P') = TRUE$ であることが $P' = A(A, W)$ となる $P \in \bf{P}$ と $W \in candidate(A, P)$ が存在することと同値である
+
+$A$ に関するブラインド認識アルゴリズムが存在するとき、 $A$ はブラインド認識可能であるという。
+
+$S$ が $A$ に関するブラインド認識器であるとき、組合せ $(A, S)$ をブラインド透かし認識アルゴリズムと呼ぶ。
+
+---
+
+ブラインド認識器は知識あり認識器よりも実用的であり、同様の理由からブラインド抽出は知識あり抽出よりも実用的である。
+以下に、ブラインド認識器を説明する2つの例を示す。
+
+Example 7 は埋め込み器と、それに関するブラインド認識器を提示する
+
+---
+
+### Example 7. (A blind recognizer)
+
+埋め込み器 $A$ を以下のように定義する。
+
+- すべてのプログラム $P$ について、$W = 101$ または $W = 110$ のとき、$A(P, W)$ は $P$ に追加の定数宣言を加えたものである。そうでなければ $A(P, W) = P$ とする。
+
+$A$ に関するブラインド認識器 $S$ を以下のように定義する。
+
+<!-- textlint-disable preset-japanese/no-doubled-joshi -->
+- 任意の $P' \in \bf{P}$ について、$P'$ が1つ以上の定数宣言を持つならば $S(P') = TRUE$、そうでなければ $S(P') = FALSE$ とする。
+<!-- textlint-enable preset-japanese/no-doubled-joshi -->
+
+---
+
+### Theorem 2.
+
+すべての埋め込み器 $A$ について、唯一のブラインド認識器が存在する。
+そのような $A$ に関する唯一のブラインド認識アルゴリズムを $BReg(A)$ と書く。
+
+**証明**:
+
+任意の $P, P' \in \bf{P}$ について、$R(P', P)$ を以下のように定義する
+
+<!-- textlint-disable preset-ja-technical-writing/max-comma -->
+- $P' = A(P, W)$ である $P \in \bf{P}$ と $W \in candidate(A, P)$ が存在するとき $R(P', P) = TRUE$、そうでければ $R(P', P) = FALSE$
+<!-- textlint-enable preset-ja-technical-writing/max-comma -->
+
+$R$ が $A$ に関するブラインド認識器であることは明らかである。
+
+---
