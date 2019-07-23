@@ -102,3 +102,71 @@ Theorem 1 は唯一の抽象的な認識器が存在していることを示し�
 また、$S(P', P) = FALSE$ は *trivial negative-partial recognizer* であり、$TrivNP(A)$ と表す。
 
 ---
+
+### Example 4. (A positive-partial recognizer for the QP algorithm)
+
+QPアルゴリズムのポジティブ部分認識器を Fig. 4 に示す。
+Example 1 で示したプログラムの干渉グラフをこの認識器で認識すると Fig. 3 のような結果が得られる。
+
+![](fig3.png)
+**Figure 3: ポジティブ部分認識器の干渉グラフ**
+
+```c
+Input:  透かしの埋め込まれていない n = |V| のグラフ G(V, E)
+        透かしの埋め込まれたグラフ G'
+Output: G' にメッセージ W が埋め込まれているかどうか
+Algorithm:
+if G が G' の部分グラフでない then
+    return FALSE
+j := 0
+for i in (1 ... n) do
+    if G の 
+    vi に接続されていない2つの最近傍頂点 vi1, vi2 を見つける then
+        j++
+        if (vi, vi2) ∈ G' then
+            G の vi と vi2 を接続する
+        else if (vi, vi1) ∈ G' then
+            G の vi と vi1 を接続する
+        else // すべてのbitが抽出された
+            exit
+if j=0 then
+    return FALSE
+return TRUE
+```
+**Figure 4: QPアルゴリズムのポジティブ認識器**
+
+---
+
+### Example 5. (A negative-partial recognizer for the QP algorithm)
+
+QPアルゴリズムのネガティブ部分認識器を Fig. 6 に示す。
+Example 1 で示したプログラムの干渉グラフをこの認識器で認識すると Fig. 5 のような結果が得られる。
+
+![](fig5.png)
+**Figure 5: ネガティブ部分認識器の干渉グラフ**
+
+```c
+Input:  透かしの埋め込まれていない n = |V| のグラフ G(V, E)
+        透かしの埋め込まれたグラフ G'
+Output: G' にメッセージ W が埋め込まれているかどうか
+Algorithm:
+if G が G' の部分グラフでない then
+    return FALSE
+j := 0
+for i in (1 ... n) do
+    if G の 
+    vi に接続されていない2つの最近傍頂点 vi1, vi2 を見つける then
+        j++
+        if (vi, vi2) ∈ G' then
+            G の vi と vi2 を接続する
+        else if (vi, vi1) ∈ G' then
+            G の vi と vi1 を接続する
+        else
+            return FALSE
+if j=0 then
+    return FALSE
+return TRUE
+```
+**Figure 6: QPアルゴリズムのネガティブ認識器**
+
+---
