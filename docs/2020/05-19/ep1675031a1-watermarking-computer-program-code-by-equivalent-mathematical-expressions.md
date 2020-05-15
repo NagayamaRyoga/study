@@ -5,7 +5,7 @@
 - **Nations**: DE, EP, US, CN
 - **Google Patents**: https://patents.google.com/patent/EP1675031A1/
 
-## 要約
+## 概要
 
 数学的に等価な数式に着目することでソフトウェアに透かしを埋め込む方法に関する特許。
 
