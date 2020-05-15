@@ -5,7 +5,7 @@
 - **Nations**: <!-- textlint-disable --> DE, EP, US, WO, CN <!-- textlint-enable -->
 - **Google Patents**: https://patents.google.com/patent/US8458476B2/
 
-## 要約
+## 概要
 
 プログラムのソースコードに冗長な条件分岐を追加する。
 

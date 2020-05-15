@@ -1,6 +1,17 @@
 ;(function() {
 	'use strict';
 
+	const slugger = new marked.Slugger();
+
+	marked.use({
+		renderer: {
+			heading(text, level) {
+				const slug = slugger.slug(text);
+				return `<h${level} id="${slug}">${text}</h${level}>`;
+			}
+		}
+	})
+
 	async function fetchMarkdown(src, into) {
 		const response = await fetch(src);
 		const markdown = (await response.text())
