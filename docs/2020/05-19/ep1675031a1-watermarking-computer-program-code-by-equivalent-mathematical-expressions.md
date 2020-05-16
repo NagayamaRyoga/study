@@ -1,7 +1,7 @@
 # EP1675031A1 - Watermarking computer program code by equivalent mathematical expressions
 
 - **Date of publication**: 2006/06/28
-- **Applicant**: Telefonaktiebolaget LM Ericsson
+- **Applicant**: Telefonaktiebolaget LM Ericsson AB
 - **Nations**: DE, EP, US, CN
 - **Google Patents**: https://patents.google.com/patent/EP1675031A1/
 
