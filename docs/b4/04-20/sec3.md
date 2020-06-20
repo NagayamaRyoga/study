@@ -66,9 +66,9 @@
 
 4. **適応的選択平文攻撃** (*adaptive-chosen-plaintext attack*)
 
-    これは選択平文攻撃に似ているが、攻撃者は平文と暗号文のペアについて解析を行うことで、また別の平文とそれに対応する暗号文を求める攻撃。
+    これは選択平文攻撃に似ているが、攻撃者は平文と暗号文のペアについて解析することで、また別の平文とそれに対応する暗号文を求める攻撃。
 
-    攻撃者は望む限り解析とペアの採集を行うことが出来る。
+    攻撃者は望む限り解析とペアの採集出来る。
 
     > She may switch between gathering pairs and performing the analysis as often as she likes.
 

@@ -2,7 +2,7 @@
 
 我々は機能的に等価な命令を冗長bitとして利用し、x86プログラムのバイナリにデータを埋め込むHydanというシステムを提案した。
 
-OpenBSD、FreeBSD、NetBSD、Red Hat LinuxとWindows XP Professionalの各OSの実行可能ファイルを解析し、埋め込み率の推定を行った。
+OpenBSD、FreeBSD、NetBSD、Red Hat LinuxとWindows XP Professionalの各OSの実行可能ファイルを解析し、埋め込み率を推定した。
 Hydanの実装について述べ、削除攻撃への耐性を発見した。
 
 埋め込み率は約 1/110 である。

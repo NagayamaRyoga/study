@@ -47,6 +47,6 @@ Hopperらによる研究では ステガノグラフィに関する同様の概�
 
 - 埋め込みアルゴリズムに対する**positive-partial recognitions**と**negative-partial recognitions**の強さの定義を述べ、**positive-partial recognitions**と**negative-partial recognitions**上界と下界の存在を示した。
 
-- *blind*および*informed*な**positive-partial recognition**と**negative-partial recognition**、認識に関する定義を行った。
+- *blind*および*informed*な**positive-partial recognition**と**negative-partial recognition**、認識に関して定義した。
 
 - 上記の定義を利用し、ソフトウェア透かしの部分認知器アルゴリズムと認識アルゴリズムを開発し、ソフトウェア透かし埋め込みおよび認識システムのモデルを設計した。
