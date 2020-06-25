@@ -14,6 +14,10 @@
 
 	async function fetchMarkdown(src, into) {
 		const response = await fetch(src);
+		if (!response.ok) {
+			throw new Error(`${src}: ${response.statusText}`);
+		}
+
 		const markdown = (await response.text())
 			.replace(/。/g, '. ')
 			.replace(/、/g, ', ')
