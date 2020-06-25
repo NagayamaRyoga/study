@@ -7,8 +7,7 @@
   },
   "scripts": {
     "start": "http-server -c-1 docs",
-    "lint": "(git diff --staged --name-only '*.md'; git ls-files --modified --others --exclude-standard '*.md') | sort | uniq | xargs textlint",
-    "lint:all": "textlint docs",
+    "lint": "textlint --cache docs",
     "test": "npm run lint"
   },
   "repository": {

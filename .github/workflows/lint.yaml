@@ -17,5 +17,5 @@ jobs:
       - name: npm ci
         run: npm ci
 
-      - name: npm run lint:all
-        run: npm run lint:all
+      - name: npm test
+        run: npm test
