@@ -33,7 +33,8 @@
 			.replace(/\\Z/g, '\\mathbb{Z}')
 			.replace(/\\N/g, '\\mathbb{N}');
 
-		into.innerHTML = marked(markdown);
+		into.innerHTML = marked(markdown)
+			.replace(/\\_/g, '_');
 
 		MathJax.Hub.Queue(['Typeset', MathJax.Hub, into]);
 
