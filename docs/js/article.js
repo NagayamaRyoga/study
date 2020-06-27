@@ -38,6 +38,10 @@
 
 		MathJax.Hub.Queue(['Typeset', MathJax.Hub, into]);
 
+		for (const code of into.querySelectorAll('code')) {
+			hljs.highlightBlock(code);
+		}
+
 		console.log(`markdown loaded '${src}'`);
 	}
 
