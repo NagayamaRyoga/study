@@ -38,7 +38,7 @@
 
 		MathJax.Hub.Queue(['Typeset', MathJax.Hub, into]);
 
-		for (const code of into.querySelectorAll('code')) {
+		for (const code of into.querySelectorAll('pre > code')) {
 			hljs.highlightBlock(code);
 		}
 
