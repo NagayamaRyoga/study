@@ -51,7 +51,7 @@ class C {
     ↓ w
 class C {
     boolean m2() {
-        int e = 1;
+        int c = 1;
         return (c * c >= 0);
     }
     void m1(int a, int b) {
