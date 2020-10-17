@@ -50,3 +50,46 @@
 \]
 
 <!-- textlint-enable -->
+
+
+## 3.2. Chaotic Dispersion Coding \(\xi\)
+
+<!-- textlint-disable -->
+\(X = \{x_1, x_2, \dots, x_n\}\) をカオスシーケンスとする。
+一般性を損なわずに、\(x_j \in [a,b), \quad j=1,2,\dots,n\) と仮定する。
+カオス分散符号化は \(W\) を \(I\) (プログラムのコード) に分散する。
+<!-- textlint-enable -->
+
+\[
+    [I',S'] = \xi(W,I,X) \tag{5}
+\]
+
+ここで \(I'\) は結果として得られるコードであり、\(S\) はセーブコード (**save code**) である。
+
+<!-- textlint-disable -->
+\(W\) の長さを \(n\) byte、\(I\) の長さを \(l\) byte とする。
+つまり、\(W = \{w_1, w_2, \dots, w_n\}\)、\(I = \{i_1, i_2, \dots, i_l\}\)、\(S = \{s_1, s_2, \dots, s_n\}\) である。
+<!-- textlint-enable -->
+
+\(\xi\) の手順は以下である。
+
+1. 初期化:
+
+    \(L \leftarrow l\)、<br>
+    \(N \leftarrow n\)、<br>
+    \(m \leftarrow \lfloor L/N \rfloor\)、<br>
+    \(j \leftarrow i\)、<br>
+    \(d \leftarrow 0\)、<br>
+    \(I' = \{i'_1, i'_2, \dots, i'_l\} = I\) とする.
+
+2. \(r = \lfloor m \times \frac{x_j-a}{b-a} \rfloor\),<br>
+    \(d = d + r\),<br>
+    \(s'_j = \partial(i_d,w_j,G)\),<br>
+    \(i'_d = w_j\) とする。
+
+3. \(j = n\) ならばアルゴリズムは完了である。そうでなければ 4. へ。
+
+4. \(L = L - r\)、<br>
+    \(N = N - 1\)、<br>
+    \(m = \lfloor L/N \rfloor\)、<br>
+    \(j = j + 1\)、<br>2. へ。
