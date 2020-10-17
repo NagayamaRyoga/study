@@ -1,4 +1,4 @@
-# The Structure of CRSW
+# 2. The Structure of CRSW
 
 <!-- textlint-disable -->
 イースターエッグ透かしはもっとも広く用いられている動的手法の一種である [1,8]。
