@@ -31,7 +31,9 @@
 			.replace(/\\lcm/g, '\\rm{lcm}')
 			.replace(/\\mod/g, '\\bmod')
 			.replace(/\\Z/g, '\\mathbb{Z}')
-			.replace(/\\N/g, '\\mathbb{N}');
+			.replace(/\\N/g, '\\mathbb{N}')
+			.replace(/\\\[\[/g, '[\\\\![')
+			.replace(/\\\]\]/g, ']\\\\!]');
 
 		into.innerHTML = marked(markdown)
 			.replace(/\\_/g, '_');
