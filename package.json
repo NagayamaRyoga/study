@@ -22,7 +22,7 @@
   "homepage": "https://github.com/NagayamaRyoga/study#readme",
   "devDependencies": {
     "http-server": "^0.12.3",
-    "pre-commit": "^1.2.2"
+    "husky": "^4.3.0"
   },
   "dependencies": {
     "@textlint-ja/textlint-rule-no-insert-dropping-sa": "^1.0.1",
@@ -36,7 +36,9 @@
     "textlint-rule-preset-japanese": "^5.0.0",
     "textlint-rule-prh": "^5.2.1"
   },
-  "pre-commit": [
-    "test"
-  ]
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test"
+    }
+  }
 }
