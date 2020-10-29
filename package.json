@@ -6,7 +6,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "start": "http-server -c-1 docs",
+    "start": "live-server docs --watch docs",
     "lint": "textlint --cache docs",
     "test": "npm run lint"
   },
@@ -21,8 +21,8 @@
   },
   "homepage": "https://github.com/NagayamaRyoga/study#readme",
   "devDependencies": {
-    "http-server": "^0.12.3",
-    "husky": "^4.3.0"
+    "husky": "^4.3.0",
+    "live-server": "^1.2.1"
   },
   "dependencies": {
     "@textlint-ja/textlint-rule-no-insert-dropping-sa": "^1.0.1",
