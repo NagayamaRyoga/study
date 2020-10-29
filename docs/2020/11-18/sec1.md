@@ -1,4 +1,4 @@
-# Introduction
+# 1. Introduction
 
 ソフトウェアの著作権侵害は、現在のコンピュータソフトウェア業界にとって深刻な課題である。
 Business Software Alliance (BSA) が発表した2016年のGlobal PC Software Piracy Research Reportでは、2015年の世界のソフトウェア海賊行為は39%に達し、経済的損失は約522億ドルに達すると指摘されている[1]。
