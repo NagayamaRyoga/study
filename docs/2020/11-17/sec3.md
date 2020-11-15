@@ -68,7 +68,7 @@
 
 <!-- textlint-disable -->
 \(W\) の長さを \(n\) byte、\(I\) の長さを \(l\) byte とする。
-つまり、\(W = \{w_1, w_2, \dots, w_n\}\)、\(I = \{i_1, i_2, \dots, i_l\}\)、\(S = \{s_1, s_2, \dots, s_n\}\) である。
+つまり、\(W = \{w_1, w_2, \dots, w_n\}\)、\(I = \{i_1, i_2, \dots, i_l\}\)、\(S'= \{s'_1, s'_2, \dots, s'_n\}\) である。
 <!-- textlint-enable -->
 
 \(\xi\) の手順は以下である。
