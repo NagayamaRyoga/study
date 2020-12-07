@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/NagayamaRyoga/study#readme",
   "devDependencies": {
-    "husky": "^4.3.0",
+    "husky": "^4.3.5",
     "live-server": "^1.2.1"
   },
   "dependencies": {
